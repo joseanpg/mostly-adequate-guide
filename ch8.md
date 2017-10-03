@@ -2,7 +2,6 @@
 
 ## The Mighty Container
 
-<img src="images/jar.jpg" alt="http://blog.dwinegar.com/2011/06/another-jar.html" />
 
 We've seen how to write programs which pipe data through a series of pure functions. They are declarative specifications of behaviour. But what about control flow, error handling, asynchronous actions, state and, dare I say, effects?! In this chapter, we will discover the foundation upon which all of these helpful abstractions are built.
 
@@ -88,8 +87,6 @@ Yes, *Functor* is simply an interface with a contract. We could have just as eas
 What reason could we possibly have for bottling up a value and using `map` to get at it? The answer reveals itself if we choose a better question: What do we gain from asking our container to apply functions for us? Well, abstraction of function application. When we `map` a function, we ask the container type to run it for us. This is a very powerful concept, indeed.
 
 ## Schrödinger's Maybe
-
-<img src="images/cat.png" alt="cool cat, need reference" />
 
 `Container` is fairly boring. In fact, it is usually called `Identity` and has about the same impact as our `id` function(again there is a mathematical connection we'll look at when the time is right). However, there are other functors, that is, container-like types that have a proper `map` function, which can provide useful behaviour whilst mapping. Let's define one now.
 
@@ -247,7 +244,6 @@ I'd be remiss if I didn't mention that the "real" implementation will split `May
 
 ## Pure Error Handling
 
-<img src="images/fists.jpg" alt="pick a hand... need a reference" />
 
 It may come as a shock, but `throw/catch` is not very pure. When an error is thrown, instead of returning an output value, we sound the alarms! The function attacks, spewing thousands of 0's and 1's like shields & spears in an electric battle against our intruding input. With our new friend `Either`, we can do better than to declare war on input, we can respond with a polite message. Let's take a look:
 
@@ -389,7 +385,6 @@ Finally, a use for that mysterious `id` function. It simply parrots back the val
 
 ## Old McDonald had Effects...
 
-<img src="images/dominoes.jpg" alt="dominoes.. need a reference" />
 
 In our chapter about purity we saw a peculiar example of a pure function. This function contained a side-effect, but we dubbed it pure by wrapping its action in another function. Here's another example of this:
 
@@ -677,8 +672,6 @@ In category theory, functors take the objects and morphisms of a category and ma
 
 Perhaps our definition of a category is still a bit fuzzy. You can think of a category as a network of objects with morphisms that connect them. So a functor would map the one category to the other without breaking the network. If an object `a` is in our source category `C`, when we map it to category `D` with functor `F`, we refer to that object as `F a` (If you put it together what does that spell?!). Perhaps, it's better to look at a diagram:
 
-<img src="images/catmap.png" alt="Categories mapped" />
-
 For instance, `Maybe` maps our category of types and functions to a category where each object may not exist and each morphism has a `null` check. We accomplish this in code by surrounding each function with `map` and each type with our functor. We know that each of our normal types and functions will continue to compose in this new world. Technically, each functor in our code maps to a sub category of types and functions which makes all functors a particular brand called endofunctors, but for our purposes, we'll think of it as a different category.
 
 We can also visualize the mapping of a morphism and its corresponding objects with this diagram:
@@ -702,9 +695,6 @@ bottomRoute('hi');
 // Maybe('ih')
 ```
 
-Or visually:
-
-<img src="images/functormapmaybe.png" alt="functor diagram 2" />
 
 We can instantly see and refactor code based on properties held by all functors.
 
